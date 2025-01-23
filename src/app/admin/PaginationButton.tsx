@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 interface PaginationButtonProps {
   currentPage: number;
   totalPages: number;
-  direction: "next" | "previous"; // Specify the direction for the button
-  tab: string; // The current tab (active, canceled, all)
+  direction: "next" | "previous"; 
+  tab: string;
 }
 
 const PaginationButton: React.FC<PaginationButtonProps> = ({
@@ -16,18 +16,16 @@ const PaginationButton: React.FC<PaginationButtonProps> = ({
   direction,
   tab,
 }) => {
-  const router = useRouter(); // Get the Next.js router instance
+  const router = useRouter(); 
 
   const handleNavigation = () => {
     const targetPage =
       direction === "next" ? currentPage + 1 : currentPage - 1;
 
-    // Navigate to the updated URL
     router.push(`?tab=${tab}&page=${targetPage}`);
-    router.refresh(); // Refresh the page to revalidate data
+    router.refresh(); 
   };
 
-  // Disable the button if it's out of bounds
   const isDisabled =
     (direction === "previous" && currentPage === 1) ||
     (direction === "next" && currentPage === totalPages);

@@ -2,7 +2,6 @@ import Link from "next/link";
 import { getBookings } from "../../../lib/bookings";
 import ArchiveButton from "./archiveButton";
 import PaginationButton from "./PaginationButton";
-import { filterByDates } from "../actions/bookings";
 import DateFilter from "./DateFilter";
 import { start } from "repl";
 
