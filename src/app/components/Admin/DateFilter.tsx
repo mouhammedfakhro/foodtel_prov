@@ -30,6 +30,7 @@ export default function DateFilter() {
 
     params.delete("startDate");
     params.delete("endDate");
+    params.set("page", "1");
     router.push(`/admin?${params.toString()}`);
   };
 
@@ -45,8 +46,8 @@ export default function DateFilter() {
 
   return (
     <div>
-      <div className="flex space-x-4 px-6 py-3 bg-white shadow mt-4">
-        <div>
+      <div className="flex flex-wrap gap-4 px-6 py-3 bg-white shadow mt-4">
+        <div className="w-full sm:w-auto flex-1">
           <label className="block text-sm font-medium text-gray-700">
             Från
           </label>
@@ -58,7 +59,7 @@ export default function DateFilter() {
             onChange={handleStartDateChange}
           />
         </div>
-        <div>
+        <div className="w-full sm:w-auto flex-1">
           <label className="block text-sm font-medium text-gray-700">
             Till
           </label>
@@ -70,19 +71,23 @@ export default function DateFilter() {
             onChange={handleEndDateChange}
           />
         </div>
-        <button
-          onClick={addFilter}
-          className="px-4  bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none mt-5"
-        >
-          Filtrera
-        </button>
-        <button
-          onClick={removeFilter}
-          type="submit"
-          className="px-4  bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none mt-5"
-        >
-          Rensa filter
-        </button>
+        <div className="w-full sm:w-auto mt-[1.3rem] flex-1">
+          <button
+            onClick={addFilter}
+            className="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none"
+          >
+            Filtrera
+          </button>
+        </div>
+        <div className="w-full sm:w-auto mt-[1.3rem] flex-1">
+          <button
+            onClick={removeFilter}
+            type="submit"
+            className="w-full px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 focus:outline-none"
+          >
+            Rensa filter
+          </button>
+        </div>
       </div>
     </div>
   );

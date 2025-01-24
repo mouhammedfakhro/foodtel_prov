@@ -6,7 +6,9 @@ import { useRouter } from "next/navigation";
 interface PaginationButtonProps {
   currentPage: number;
   totalPages: number;
-  direction: "next" | "previous"; 
+  direction: "next" | "previous";
+  startDate: string;
+  endDate: string;
   tab: string;
 }
 
@@ -15,20 +17,28 @@ const PaginationButton: React.FC<PaginationButtonProps> = ({
   totalPages,
   direction,
   tab,
+  startDate,
+  endDate,
 }) => {
-  const router = useRouter(); 
+  const router = useRouter();
 
   const handleNavigation = () => {
-    const targetPage =
-      direction === "next" ? currentPage + 1 : currentPage - 1;
+    const targetPage = direction === "next" ? currentPage + 1 : currentPage - 1;
 
-    router.push(`?tab=${tab}&page=${targetPage}`);
-    router.refresh(); 
+    const params = new URLSearchParams();
+    params.set("tab", tab);
+    params.set("page", targetPage.toString());
+    
+    if (startDate) params.set("startDate", startDate);
+    if (endDate) params.set("endDate", endDate);
+
+    router.push(`?${params.toString()}`);
   };
 
   const isDisabled =
     (direction === "previous" && currentPage === 1) ||
-    (direction === "next" && currentPage === totalPages);
+    (direction === "next" && currentPage === totalPages) ||
+    totalPages === 0;
 
   return (
     <button

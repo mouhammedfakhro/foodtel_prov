@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { archiveBooking } from "../actions/bookings";
+import { archiveBooking } from "@/app/actions/bookings";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 

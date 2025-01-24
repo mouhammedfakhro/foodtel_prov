@@ -70,7 +70,6 @@ function getCurrentTime() {
   return `${formattedHours}:${formattedMinutes}`;
 }
 
-
 const Book = async () => {
   const cookieStore = await cookies();
   const bookingCookie = cookieStore.get("bookingSuccess")?.value === "true";
@@ -78,7 +77,7 @@ const Book = async () => {
 
   return (
     <div className="flex h-screen">
-      <div className="flex-1 relative">
+      <div className="flex-1 relative hidden sm:block">
         <Image
           src={img}
           alt="Background"
