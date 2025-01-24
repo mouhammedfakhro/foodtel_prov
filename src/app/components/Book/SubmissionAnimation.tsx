@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import animation from "../assets/animations/smile.json";
-import LottieAnimation from "../components/LottieAnimation";
+import animation from "../../assets/animations/smile.json";
+import LottieAnimation from "./LottieAnimation";
 import { useRouter } from "next/navigation";
 
 interface AnimationProps {

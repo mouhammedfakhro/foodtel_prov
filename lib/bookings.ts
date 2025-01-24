@@ -14,11 +14,9 @@ export async function getBookings({tab, page, pageSize, startDate, endDate} : Pr
   const filters: Record<string, any> = {};
 
 
-  // Add the isArchived filter
   if (tab === "active") filters.isArchived = false;
   if (tab === "canceled") filters.isArchived = true;
 
-  // Add the date range filter
   if (startDate && endDate) {
     filters.date = {
       gte: new Date(startDate),
@@ -26,7 +24,6 @@ export async function getBookings({tab, page, pageSize, startDate, endDate} : Pr
     };
   }
 
-  // Fetch the filtered and paginated bookings
   const bookings = await prisma.booking.findMany({
     where: filters,
     orderBy: { createdAt: "desc" },
@@ -34,7 +31,6 @@ export async function getBookings({tab, page, pageSize, startDate, endDate} : Pr
     take: pageSize,
   });
 
-  // Count total filtered records for accurate total pages
   const total = await prisma.booking.count({
     where: filters,
   });
