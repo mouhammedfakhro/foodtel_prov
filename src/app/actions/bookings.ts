@@ -19,7 +19,6 @@ const bookingSchema = z.object({
   agreeToPolicy: z.boolean(),
 });
 
-
 export async function archiveBooking(bookingId: number) {
   try {
     const updatedBooking = await prisma.booking.update({
@@ -64,7 +63,6 @@ export async function processBooking(formData: FormData) {
         email: result.data.email,
         totalGuests: result.data.guests,
         date: new Date(result.data.date),
-
     },
   })
 

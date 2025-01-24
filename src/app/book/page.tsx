@@ -118,7 +118,6 @@ export default async function Book() {
               Boka bord
             </button>
           </form>
-
           {successFlag && <SubmissionAnimation isVisible />}
         </div>
       </div>
