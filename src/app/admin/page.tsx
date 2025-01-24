@@ -25,11 +25,8 @@ export default async function AdminPage({
     startDate,
     endDate,
   });
-
-  
-  
+    
   const totalPages = Math.ceil(total / pageSize);
-  console.log(totalPages);
 
   return (
     <BookingsList
