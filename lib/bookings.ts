@@ -6,7 +6,6 @@ type Props = {
   pageSize: number,
   startDate?: string,
   endDate?: string,
-
 }
 
 export async function getBookings({tab, page, pageSize, startDate, endDate} : Props) {
@@ -26,7 +25,7 @@ export async function getBookings({tab, page, pageSize, startDate, endDate} : Pr
 
   const bookings = await prisma.booking.findMany({
     where: filters,
-    orderBy: { createdAt: "desc" },
+    orderBy: { createdAt: "asc" },
     skip,
     take: pageSize,
   });
