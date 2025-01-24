@@ -3,6 +3,7 @@ import { Booking } from "../../../../types";
 import ArchiveButton from "./ArchiveButton";
 import PaginationButton from "./PaginationButton";
 import DateFilter from "./DateFilter";
+import Link from "next/link";
 
 type Props = {
   tab: string;
@@ -23,7 +24,7 @@ const BookingsList = ({ tab, bookings, startDate, endDate, page, totalPages }: P
 
       <div className="bg-white shadow mt-4">
         <div className="flex space-x-6 px-6 py-3 border-b">
-          <a
+          <Link
             href="?tab=active"
             className={`text-sm font-medium ${
               tab === "active"
@@ -32,8 +33,8 @@ const BookingsList = ({ tab, bookings, startDate, endDate, page, totalPages }: P
             }`}
           >
             Aktiva
-          </a>
-          <a
+          </Link>
+          <Link
             href="?tab=canceled"
             className={`text-sm font-medium ${
               tab === "canceled"
@@ -42,8 +43,8 @@ const BookingsList = ({ tab, bookings, startDate, endDate, page, totalPages }: P
             }`}
           >
             Avbokade
-          </a>
-          <a
+          </Link>
+          <Link
             href="?tab=all"
             className={`text-sm font-medium ${
               tab === "all"
@@ -52,7 +53,7 @@ const BookingsList = ({ tab, bookings, startDate, endDate, page, totalPages }: P
             }`}
           >
             Alla
-          </a>
+          </Link>
         </div>
       </div>
 
