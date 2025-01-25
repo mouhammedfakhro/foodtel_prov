@@ -14,12 +14,22 @@ type Props = {
   totalPages: number;
 };
 
-const BookingsList = ({ tab, bookings, startDate, endDate, page, totalPages }: Props) => {
+const BookingsList = ({
+  tab,
+  bookings,
+  startDate,
+  endDate,
+  page,
+  totalPages,
+}: Props) => {
   return (
     <div className="min-h-screen sm:mb-0 mb-10">
       <div className="flex items-center bg-white shadow justify-between px-6 py-4">
         <h1 className="text-2xl font-semibold">Bokningar</h1>
-        <p className="text-gray-500">Visa och hantera dina bokningar</p>
+        <Link href="/" className="text-gray-500 relative group">
+          Återgå till startsidan
+          <span className="absolute right-0 bottom-0 w-full h-[2px] bg-black scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-300"></span>
+        </Link>
       </div>
 
       <div className="bg-white shadow mt-4">
